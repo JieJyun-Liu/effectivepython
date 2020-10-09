@@ -85,11 +85,12 @@ a[-3:-1]  #                          ['f', 'g']
 # Example 6
 first_twenty_items = a[:20]
 last_twenty_items = a[-20:]
+empty_list = a[19:20]
 
 
 # Example 7
 try:
-    a[20]
+    a[20] # out of range
 except:
     logging.exception('Expected')
 else:
@@ -113,11 +114,11 @@ print('After  ', a)
 # Example 10
 print('Before ', a)
 a[2:3] = [47, 11]
-print('After  ', a)
+print('After  ', a) # one more item than prev
 
 
 # Example 11
-b = a[:]
+b = a[:] # copy
 assert b == a and b is not a
 
 
