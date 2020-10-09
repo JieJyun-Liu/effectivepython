@@ -114,6 +114,7 @@ value = 1.234
 
 old_way = '%-10s = %.2f' % (key, value)
 
+# new way with format
 new_way = '%(key)-10s = %(value).2f' % {
     'key': key, 'value': value}  # Original
 
@@ -224,6 +225,7 @@ for i, (item, count) in enumerate(pantry):
 
 
 # Example 21
+# menu[oyster] = 'kumamoto'
 formatted = 'First letter is {menu[oyster][0]!r}'.format(
     menu=menu)
 print(formatted)
@@ -267,7 +269,7 @@ print(formatted)
 
 
 # Example 25
-f_string = f'{key:<10} = {value:.2f}'
+f_string = f'{key:<10} = {value:.2f}' # 'my_str'   = 1.23
 
 c_tuple  = '%-10s = %.2f' % (key, value)
 
@@ -308,4 +310,4 @@ for i, (item, count) in enumerate(pantry):
 # Example 28
 places = 3
 number = 1.23456
-print(f'My number is {number:.{places}f}')
+print(f'My number is {number:.{places}f}') # .3f
