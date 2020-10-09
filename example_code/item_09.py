@@ -66,14 +66,14 @@ else:
 for x in []:
     print('Never runs')
 else:
-    print('For Else block!')
+    print('For Else block!') # print
 
 
 # Example 4
 while False:
     print('Never runs')
 else:
-    print('While Else block!')
+    print('While Else block!') # print
 
 
 # Example 5
