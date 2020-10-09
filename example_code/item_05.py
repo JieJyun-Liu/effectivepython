@@ -56,8 +56,8 @@ print(repr(my_values))
 
 # Example 2
 print('Red:     ', my_values.get('red'))
-print('Green:   ', my_values.get('green'))
-print('Opacity: ', my_values.get('opacity'))
+print('Green:   ', my_values.get('green')) # ['']
+print('Opacity: ', my_values.get('opacity')) # None
 
 
 # Example 3
@@ -66,8 +66,8 @@ red = my_values.get('red', [''])[0] or 0
 green = my_values.get('green', [''])[0] or 0
 opacity = my_values.get('opacity', [''])[0] or 0
 print(f'Red:     {red!r}')
-print(f'Green:   {green!r}')
-print(f'Opacity: {opacity!r}')
+print(f'Green:   {green!r}') # 0
+print(f'Opacity: {opacity!r}') # 0
 
 
 # Example 4
@@ -92,6 +92,8 @@ print(f'Opacity: {opacity!r}')
 
 
 # Example 6
+# more clear if we use if/else in this case
+# --single-line expressions
 green_str = my_values.get('green', [''])
 if green_str[0]:
     green = int(green_str[0])

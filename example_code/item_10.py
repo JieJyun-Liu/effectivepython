@@ -68,7 +68,9 @@ else:
     out_of_stock()
 
 
-# Example 3
+""" Example 3. Use walrus instead of one-time cnt.
+3.8 := https://www.python.org/dev/peps/pep-0572/
+"""
 if count := fresh_fruit.get('lemon', 0):
     make_lemonade(count)
 else:
@@ -86,7 +88,7 @@ else:
     out_of_stock()
 
 
-# Example 5
+# Example 5: too many parentheses
 if (count := fresh_fruit.get('apple', 0)) >= 4:
     make_cider(count)
 else:
