@@ -66,7 +66,7 @@ print(first, 'and', second)
 # Example 3
 try:
     pair = ('Chocolate', 'Peanut butter')
-    pair[0] = 'Honey'
+    pair[0] = 'Honey' # wa: immutable
 except:
     logging.exception('Expected')
 else:
@@ -130,6 +130,15 @@ for i in range(len(snacks)):
 	print(f'#{i+1}: {name} has {calories} calories')
 
 
-# Example 9
+""" Example 9 : specify the starting index with enumerate(*, %d)
+https://book.pythontips.com/en/latest/enumerate.html
+
+"""
+
+# 9-1
 for rank, (name, calories) in enumerate(snacks, 1):
+	print(f'#{rank}: {name} has {calories} calories')
+
+# 9-2
+for rank, (name, calories) in enumerate(snacks):
 	print(f'#{rank}: {name} has {calories} calories')
