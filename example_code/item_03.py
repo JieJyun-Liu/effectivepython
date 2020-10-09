@@ -60,6 +60,7 @@ print(a)
 
 # Example 3
 def to_str(bytes_or_str):
+    """decode bytes to str"""
     if isinstance(bytes_or_str, bytes):
         value = bytes_or_str.decode('utf-8')
     else:
@@ -72,6 +73,7 @@ print(repr(to_str('bar')))
 
 # Example 4
 def to_bytes(bytes_or_str):
+    """encode str to bytes"""
     if isinstance(bytes_or_str, str):
         value = bytes_or_str.encode('utf-8')
     else:
@@ -89,7 +91,7 @@ print('one' + 'two')
 
 # Example 6
 try:
-    b'one' + 'two'
+    b'one' + 'two' # wa
 except:
     logging.exception('Expected')
 else:
@@ -98,7 +100,7 @@ else:
 
 # Example 7
 try:
-    'one' + b'two'
+    'one' + b'two' # wa again
 except:
     logging.exception('Expected')
 else:
@@ -194,6 +196,7 @@ assert data == b'\xf1\xf2\xf3\xf4\xf5'
 
 # Example 19
 with open('data.bin', 'r', encoding='cp1252') as f:
+    """legacy Windows encoding"""
     data = f.read()
 
 assert data == 'ñòóôõ'
