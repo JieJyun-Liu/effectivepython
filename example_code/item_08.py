@@ -92,7 +92,7 @@ for name, count in zip(names, counts):
     print(name)
 
 
-# Example 6
+# Example 6: zip_longest replace the count of 'Rosalind' to None
 import itertools
 
 for name, count in itertools.zip_longest(names, counts):
