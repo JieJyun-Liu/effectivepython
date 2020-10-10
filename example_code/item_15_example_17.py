@@ -65,4 +65,4 @@ sorted_ranks = SortedDict()
 populate_ranks(votes, sorted_ranks)
 print(sorted_ranks.data)
 winner = get_winner(sorted_ranks)
-print(winner)
+print(winner) # fox

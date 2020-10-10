@@ -79,8 +79,9 @@ print(youngest, second_youngest, others)
 
 # Example 5
 try:
-    # This will not compile
+    # This will not compile, wa
     source = """*others = car_ages_descending"""
+    *others, = car_ages_descending
     eval(source)
 except:
     logging.exception('Expected')
@@ -145,3 +146,12 @@ it = generate_csv()
 header, *rows = it
 print('CSV Header:', header)
 print('Row count: ', len(rows))
+
+
+"""Catch-all unpacking: https://www.python.org/dev/peps/pep-3132/"""
+seq = [0, 9, 4, 8, 7, 20, 19, 1, 6, 15]
+first, *rest = seq
+
+# it = iter(seq)
+# first = it.__next__()
+# rest = list(it)

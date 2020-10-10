@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
+# Original PyPy dictionary design: https://morepypy.blogspot.com/2015/01/faster-more-memory-efficient-and-more.html
 
 # Example 1
 # Python 3.5
@@ -22,4 +22,4 @@ baby_names = {
     'cat': 'kitten',
     'dog': 'puppy',
 }
-print(baby_names)
+print(baby_names) # not ordered: {'dog': 'puppy', 'cat': 'kitten'}

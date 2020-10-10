@@ -83,7 +83,7 @@ visits.add('Tanzania', 'Zanzibar')
 print(visits.data)
 
 
-# Example 5
+# Example 5: prefer this
 from collections import defaultdict
 
 class Visits:

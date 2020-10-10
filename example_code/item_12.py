@@ -69,9 +69,9 @@ print(y)
 # Example 4
 try:
     w = '寿司'
-    x = w.encode('utf-8')
-    y = x[::-1]
-    z = y.decode('utf-8')
+    x = w.encode('utf-8') # b'\xe5\xaf\xbf\xe5\x8f\xb8'
+    y = x[::-1]           # b'\xb8\x8f\xe5\xbf\xaf\xe5'
+    z = y.decode('utf-8') # wa
 except:
     logging.exception('Expected')
 else:
@@ -91,9 +91,14 @@ x[-2:2:-2]  # ['g', 'e']
 x[2:2:-2]   # []
 
 
-# Example 7
+# Example 7: more clear in 2 lines
+# x[2:5:2]
 y = x[::2]   # ['a', 'c', 'e', 'g']
 z = y[1:-1]  # ['c', 'e']
 print(x)
 print(y)
 print(z)
+
+# or using is_slice
+from itertools import islice
+u = list(islice(x, 2, 5, 2))
