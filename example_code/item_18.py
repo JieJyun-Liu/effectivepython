@@ -46,7 +46,7 @@ def close_open_files():
 atexit.register(close_open_files)
 
 
-# Example 1
+# Example 1: confusing ...
 pictures = {}
 path = 'profile_1234.png'
 
