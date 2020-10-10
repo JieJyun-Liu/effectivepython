@@ -51,6 +51,7 @@ from time import sleep
 from datetime import datetime
 
 def log(message, when=datetime.now()):
+    # when = once the function is created
     print(f'{when}: {message}')
 
 log('Hi there!')
@@ -98,7 +99,7 @@ print('Bar:', bar)
 
 
 # Example 6
-assert foo is bar
+assert foo is bar # they are the same
 
 
 # Example 7

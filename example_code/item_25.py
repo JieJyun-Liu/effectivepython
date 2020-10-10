@@ -150,7 +150,7 @@ assert safe_division_c(2, divisor=5) == 0.4
 
 
 # Example 11
-def safe_division_c(numerator, denominator, *,  # Changed
+def safe_division_c(numerator, denominator, *,  # Changed, confusing ...
                     ignore_overflow=False,
                     ignore_zero_division=False):
     try:
@@ -205,6 +205,17 @@ except:
     logging.exception('Expected')
 else:
     assert False
+
+
+""" PEP570: Position-only parameters (https://www.python.org/dev/peps/pep-0570/) - new in python 3.8
+# valid definitions:
+    def name(p1, p2, /, p_or_kw, *, kw):
+    def name(p1, p2=None, /, p_or_kw=None, *, kw):
+    def name(p1, p2=None, /, *, kw):
+    def name(p1, p2=None, /):
+    def name(p1, p2, /, p_or_kw):
+    def name(p1, p2, /):
+"""
 
 
 # Example 16

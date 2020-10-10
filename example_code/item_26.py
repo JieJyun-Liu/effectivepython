@@ -98,11 +98,41 @@ else:
     assert False
 
 
-# Example 8
 from functools import wraps
 
-def trace(func):
+""" a quick look to functools.wraps() function
+Ref. https://www.geeksforgeeks.org/python-functools-wraps-function/
+
+"""
+def a_decorator(func):
     @wraps(func)
+    def wrapper(*args, **kwargs):
+        """A wrapper function"""
+        func()
+    return wrapper
+  
+@a_decorator
+def first_function():
+    """This is docstring for first function"""
+    print("first function")
+
+@a_decorator
+def second_function(a):
+    """This is docstring for second function"""
+    print("second function")
+
+# (# @wrap)
+print(first_function.__name__) # first_function (wrapper)
+print(first_function.__doc__) # This is docstring for first function (A wrapper function)
+print(second_function.__name__) # second_function (wrapper)
+print(second_function.__doc__) # This is docstring for second function (A wrapper function)
+
+help(first_function)
+help(second_function)
+
+# Example 8
+def trace(func):
+    @wraps(func) # help
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         print(f'{func.__name__}({args!r}, {kwargs!r}) '

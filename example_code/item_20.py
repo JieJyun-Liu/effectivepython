@@ -98,6 +98,7 @@ if not success:
 
 
 # Example 6
+# the first parameter is ignored
 x, y = 5, 0
 _, result = careful_divide(x, y)
 if not result:

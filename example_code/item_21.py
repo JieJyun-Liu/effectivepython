@@ -55,6 +55,23 @@ def sort_priority(values, group):
     values.sort(key=helper)
 
 
+# LEGB (Local, Enclosing, Global, Builtins)
+# Ref. https://medium.com/@dboyliao/%E8%81%8A%E8%81%8A-python-closure-ebd63ff0146f
+def outer(a):
+    b = a
+    def inner():
+        c = 3
+        def inner_inner(b):
+            # b = 1, not b defined in outer
+            return b+c
+        return inner_inner
+    return inner
+
+foo = outer(10)
+bar = foo()
+bar(1) # 4
+
+
 # Example 2
 numbers = [8, 3, 1, 2, 5, 4, 7, 6]
 group = {2, 3, 5, 7}
@@ -69,6 +86,7 @@ def sort_priority2(numbers, group):
         if x in group:
             found = True  # Seems simple
             return (0, x)
+        # print(f'x={x}, found={found}') # wa
         return (1, x)
     numbers.sort(key=helper)
     return found
@@ -77,7 +95,7 @@ def sort_priority2(numbers, group):
 # Example 4
 numbers = [8, 3, 1, 2, 5, 4, 7, 6]
 found = sort_priority2(numbers, group)
-print('Found:', found)
+print('Found:', found) # False
 print(numbers)
 
 
@@ -92,14 +110,14 @@ else:
 
 # Example 6
 def sort_priority2(numbers, group):
-    found = False         # Scope: 'sort_priority2'
+    found = False         # Scope: 'sort_priority2', found in sort_priority2
     def helper(x):
         if x in group:
-            found = True  # Scope: 'helper' -- Bad!
+            found = True  # Scope: 'helper' -- Bad!, found in helper
             return (0, x)
         return (1, x)
     numbers.sort(key=helper)
-    return found
+    return found # found in sort_priority2
 
 
 # Example 7
@@ -112,7 +130,7 @@ def sort_priority3(numbers, group):
             return (0, x)
         return (1, x)
     numbers.sort(key=helper)
-    return found
+    return found # True
 
 
 # Example 8

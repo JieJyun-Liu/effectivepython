@@ -56,10 +56,14 @@ def log(message, values):
 
 log('My numbers are', [1, 2])
 log('Hi there', [])
+try:
+    log('Hi there') # log() missing 1 required positional argument: 'values'
+except:
+    logging.exception('Expected')
 
 
 # Example 2
-def log(message, *values):  # The only difference
+def log(message, *values):  # The only difference: ++catch-all
     if not values:
         print(message)
     else:
@@ -97,4 +101,4 @@ def log(sequence, message, *values):
 
 log(1, 'Favorites', 7, 33)      # New with *args OK
 log(1, 'Hi there')              # New message only OK
-log('Favorite numbers', 7, 33)  # Old usage breaks
+log('Favorite numbers', 7, 33)  # Old usage breaks - Favorite numbers - 7: 33
