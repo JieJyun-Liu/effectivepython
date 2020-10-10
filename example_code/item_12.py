@@ -98,3 +98,7 @@ z = y[1:-1]  # ['c', 'e']
 print(x)
 print(y)
 print(z)
+
+# or using is_slice
+from itertools import islice
+u = list(islice(x, 2, 5, 2))
