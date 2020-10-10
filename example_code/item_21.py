@@ -62,6 +62,26 @@ sort_priority(numbers, group)
 print(numbers)
 
 
+"""LEGB (Local, Enclosing, Global, Builtins)
+Ref. https://medium.com/@dboyliao/%E8%81%8A%E8%81%8A-python-closure-ebd63ff0146f
+
+"""
+
+def outer(a):
+    b = a
+    def inner():
+        c = 3
+        def inner_inner(b):
+            # b = 1, not b defined in outer
+            return b+c
+        return inner_inner
+    return inner
+
+foo = outer(10)
+bar = foo()
+bar(1) # 4
+
+
 # Example 3
 def sort_priority2(numbers, group):
     found = False
