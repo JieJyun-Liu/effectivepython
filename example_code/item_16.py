@@ -175,6 +175,7 @@ who = 'Kirk'
 
 names = votes.setdefault(key, [])
 names.append(who)
+# votes.get(key, []).append(who) # None
 
 print(votes)
 
