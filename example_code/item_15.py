@@ -167,7 +167,7 @@ def get_winner(ranks):
             return name
 
 winner = get_winner(sorted_ranks)
-print(winner)
+print(winner) # otter
 
 
 # Example 16
