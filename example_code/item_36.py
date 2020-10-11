@@ -129,6 +129,7 @@ def sum_modulo_20(first, second):
     output = first + second
     return output % 20
 
+# 1+2=3(first), 3+3=6, 6+4=10, 10+5=15 ...
 modulo_reduce = itertools.accumulate(values, sum_modulo_20)
 print('Modulo:', list(modulo_reduce))
 
