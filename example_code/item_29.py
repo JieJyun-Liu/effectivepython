@@ -94,7 +94,7 @@ assert found == {'screws': 4, 'wingnuts': 1}, found
 # Example 5
 try:
     result = {name: (tenth := count // 10)
-              for name, count in stock.items() if tenth > 0}
+              for name, count in stock.items() if tenth > 0} # tenth is not defined
 except:
     logging.exception('Expected')
 else:
@@ -103,19 +103,19 @@ else:
 
 # Example 6
 result = {name: tenth for name, count in stock.items()
-          if (tenth := count // 10) > 0}
+          if (tenth := count // 10) > 0} # ac
 print(result)
 
 
 # Example 7
-half = [(last := count // 2) for count in stock.values()]
-print(f'Last item of {half} is {last}')
+half = [(last := count // 2) for count in stock.values()] # [125, 35, 8, 24]
+print(f'Last item of {half} is {last}') # [62, 17, 4, 12]
 
 
 # Example 8
 for count in stock.values():  # Leaks loop variable
     pass
-print(f'Last item of {list(stock.values())} is {count}')
+print(f'Last item of {list(stock.values())} is {count}') # count = 24
 
 
 # Example 9
