@@ -88,7 +88,7 @@ print(list(it))  # Already exhausted
 
 
 # Example 6
-def normalize_copy(numbers):
+def normalize_copy(numbers): # numbers is an iterator
     numbers_copy = list(numbers)  # Copy the iterator
     total = sum(numbers_copy)
     result = []
@@ -140,9 +140,15 @@ print(percentages)
 assert sum(percentages) == 100.0
 
 
+"""Collections.abc: https://docs.python.org/3/library/collections.abc.html#module-collections.abc
+Iterator: __iter__(), __next__()
+Container: dict, list, set, tuple
+
+"""
+
 # Example 12
 def normalize_defensive(numbers):
-    if iter(numbers) is numbers:  # An iterator -- bad!
+    if iter(numbers) is numbers:  # An iterator -- bad! confusing ...
         raise TypeError('Must supply a container')
     total = sum(numbers)
     result = []
@@ -181,7 +187,7 @@ normalize_defensive(visits)  # No error
 
 it = iter(visits)
 try:
-    normalize_defensive(it)
+    normalize_defensive(it) # wa
 except TypeError:
     pass
 else:
