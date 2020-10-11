@@ -69,12 +69,12 @@ def run(it):
     for output in it:
         transmit(output)
 
-run(wave(3.0, 8))
+run(wave(3.0, 8)) # wave for 8 times
 
 
 # Example 3
 def my_generator():
-    received = yield 1
+    received = yield 1 # received: None
     print(f'received = {received}')
 
 it = my_generator()
@@ -95,11 +95,26 @@ output = it.send(None)  # Get first generator output
 print(f'output = {output}')
 
 try:
-    it.send('hello!')   # Send value into the generator
+    it.send('hello!')   # Send value into the generator, this is confusing to me too ... 
 except StopIteration:
     pass
 else:
     assert False
+
+
+""" python generator “send” function purpose?
+Ref. https://stackoverflow.com/questions/19302530/python-generator-send-function-purpose
+
+"""
+def double_inputs():
+    while True:
+        x = yield
+        yield x * 2
+
+gen = double_inputs()
+next(gen) # run up to the first yield
+gen.send(10) # goes into 'x' variable
+# 20
 
 
 # Example 5
@@ -111,6 +126,7 @@ def wave_modulating(steps):
         fraction = math.sin(radians)
         output = amplitude * fraction
         amplitude = yield output  # Receive next amplitude
+        # yield output # 7, 7, 7, 7, 7 ....
 
 
 # Example 6

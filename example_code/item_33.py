@@ -79,6 +79,7 @@ run(animate)
 
 
 # Example 4
+# PEP380: Syntax for Delegating to a Subgenerator (https://www.python.org/dev/peps/pep-0380/)
 def animate_composed():
     yield from move(4, 5.0)
     yield from pause(3)
