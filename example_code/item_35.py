@@ -59,7 +59,7 @@ try:
     it = my_generator()
     print(next(it))  # Yield 1
     print(next(it))  # Yield 2
-    print(it.throw(MyError('test error')))
+    print(it.throw(MyError('test error'))) # get to the end, 'Got MyError!' Yield 4
 except:
     logging.exception('Expected')
 else:
@@ -115,19 +115,19 @@ def run():
     it = timer(4)    
     while True:
         try:
-            if check_for_reset():
+            if check_for_reset(): # reset Timer
                 current = it.throw(Reset())
             else:
-                current = next(it)
+                current = next(it) # --current
         except StopIteration:
             break
         else:
-            announce(current)
+            announce(current) # print
 
 run()
 
 
-# Example 5
+# Example 5: much more readable
 class Timer:
     def __init__(self, period):
         self.current = period

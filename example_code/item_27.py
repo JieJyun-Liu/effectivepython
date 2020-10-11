@@ -70,7 +70,7 @@ print(even_squares)
 
 
 # Example 5
-alt = map(lambda x: x**2, filter(lambda x: x % 2 == 0, a))
+alt = map(lambda x: x**2, filter(lambda x: x % 2 == 0, a)) # hard to read
 assert even_squares == list(alt)
 
 

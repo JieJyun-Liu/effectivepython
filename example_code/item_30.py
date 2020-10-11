@@ -109,5 +109,5 @@ with open('address.txt', 'w') as f:
 import itertools
 with open('address.txt', 'r') as f:
     it = index_file(f)
-    results = itertools.islice(it, 0, 10)
+    results = itertools.islice(it, 0, 10) # get the first 10 items 
     print(list(results))

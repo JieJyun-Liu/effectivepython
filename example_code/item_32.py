@@ -69,7 +69,7 @@ print(next(it))
 
 
 # Example 4
-roots = ((x, x**0.5) for x in it)
+roots = ((x, x**0.5) for x in it) # it and roots are composed together!
 
 
 # Example 5
