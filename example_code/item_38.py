@@ -83,6 +83,7 @@ def increment_with_report(current, increments):
         added_count += 1
         return 0
 
+    # if find a new key, call missing ...
     result = defaultdict(missing, current)
     for key, amount in increments:
         result[key] += amount
@@ -120,7 +121,7 @@ class BetterCountMissing:
     def __init__(self):
         self.added = 0
 
-    def __call__(self):
+    def __call__(self): # better than calling CountMissing.missing
         self.added += 1
         return 0
 
